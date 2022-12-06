@@ -1,0 +1,52 @@
+<section data-bs-version="5.1" class="team1 cid-t9dwwizMCV" id="team1-1">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h3 class="mbr-section-title mbr-fonts-style align-center mb-4 display-2">
+                    <strong>Equipe Gestora</strong></h3>
+            </div>
+
+            {% for m in managers %}
+            <div class="col-sm-6 col-lg-4">
+                <div class="card-wrap">
+                    <div class="image-wrap">
+                        <img src='{{ m.photo.thumbnail.url }}' alt="Mobirise Website Builder">
+                    </div>
+                    <div class="content-wrap">
+                        <h5 class="mbr-section-title card-title mbr-fonts-style align-center m-0 display-5">
+                            <strong>{{ m.name}}</strong>
+                        </h5>
+                        <h6 class="mbr-role mbr-fonts-style align-center mb-3 display-4">
+                            <strong>{{ m.cargo}}</strong>
+                        </h6>
+                        <p class="card-text mbr-fonts-style align-center display-7">
+                            {{ m.bio}}
+                        </p>
+                        <div class="social-row display-7">
+                            <div class="soc-item">
+                                <a href="https://www.facebook.com/Mobirise/" target="_blank">
+                                    <span class="mbr-iconfont socicon socicon-facebook"></span>
+                                </a>
+                            </div>
+                            <div class="soc-item">
+                                <a href="https://twitter.com/mobirise" target="_blank">
+                                    <span class="mbr-iconfont socicon socicon-twitter"></span>
+                                </a>
+                            </div>
+                            <div class="soc-item">
+                                <a href="https://instagram.com/mobirise" target="_blank">
+                                    <span class="mbr-iconfont socicon socicon-instagram"></span>
+                                </a>
+                            </div>
+                            
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>

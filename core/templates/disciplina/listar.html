@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section data-bs-version="5.1" class="header9 cid-sFHoAfPmXB" data-bg-video="https://vimeo.com/721981533" id="header9-1"  style="height: 758px">
+  <div class="mbr-overlay" style="opacity: 0.3; background-color: rgb(9, 92, 255);"></div>
+  <div class="text-center container">
+      <div class="row justify-content-center">
+          <div class="col-md-12 col-lg-9">
+            <div class="item mbr-flex border border-success rounded p-3 bg-light">
+              <h3>{{request.user.first_name}} {{request.user.last_name}}</h3>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Disciplina</th>
+                    <th scope="col">Nota</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for d in disciplina %}
+                    {% for nome in d.aluno.all %}
+                      {% if nome == request.user %}
+                        <tr>
+                          <td>{{d.nome}}</td>
+                          <td>{{d.nota}}</td>
+                        </tr>
+                      {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                </tbody>
+              </table>
+              <form action="{% url 'alunopdf' %}">
+                <input type="submit" value="Gerar Pdf" />
+            </form>            
+            </div>
+      </div>
+      </div>
+  </div>
+</section>
+{% endblock %}

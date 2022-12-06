@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap %}
+
+{% block content %}
+<section data-bs-version="5.1" class="header9 cid-sFHoAfPmXB" data-bg-video="https://vimeo.com/721981533" id="header9-1" style="height: 758px; padding: 9em;">
+  <div class="mbr-overlay" style="opacity: 0.3; background-color: rgb(9, 92, 255);"></div>
+  <div class="text-center container">
+      <div class="row justify-content-center">
+          <div class="col-md-12 col-lg-9">
+            <div class="item mbr-flex border border-success rounded p-3 bg-light">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form|bootstrap }}
+                    <p>
+                        <input type="submit" class="btn btn-dark btn-lg"
+                               value="Salvar">
+                    </p>
+                </form>
+            </div>
+      </div>
+      </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap %}
+
+{% block content %}
+<section data-bs-version="5.1" class="header9 cid-sFHoAfPmXB" data-bg-video="https://vimeo.com/721981533" id="header9-1">
+  <div class="mbr-overlay" style="opacity: 0.3; background-color: rgb(9, 92, 255);"></div>
+  <div class="text-center container">
+      <div class="row justify-content-center">
+          <div class="col-md-12 col-lg-9">
+            {% if form.errors %}
+              <p class="bg-warning rounded p-3">
+                  Usuário ou senha inválidos.
+              </p>
+            {% else %}
+              <p class="bg-success rounded p-3">
+                  Por favor informe seu login e senha.
+              </p>
+            {% endif %}
+
+            <form action="{% url 'login' %}"
+                  method="post">
+                {% csrf_token %}
+                {{ form|bootstrap }}
+                <p>
+                    <input type="submit"
+                          class="btn btn-primary"
+                          value="Login">
+                </p>
+            </form>
+      </div>
+      </div>
+  </div>
+</section>
+{% endblock %}

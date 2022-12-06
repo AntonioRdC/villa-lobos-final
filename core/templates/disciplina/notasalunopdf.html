@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{{request.user.first_name}}_Notas</title>
+    <style>
+      * {
+        text-align: center;
+      }
+      table {
+        border: 1px dotted #8B4513;
+        font-size: 1.2em;
+      }
+      th {
+        padding: 0.5em;
+      }
+      td {
+        padding: 0.5em;
+      }
+    </style>
+</head>
+<body>
+  <div class="text-center container">
+    <div class="row justify-content-center">
+        <div class="col-md-12 col-lg-9">
+          <div class="item mbr-flex border border-success rounded p-3 bg-light">
+            <h3>{{request.user.first_name}} {{request.user.last_name}}</h3>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Disciplina</th>
+                  <th scope="col">Nota</th>
+                </tr>
+              </thead>
+              <tbody>
+                  {% for d in disciplina %}
+                  {% for nome in d.aluno.all %}
+                    {% if nome == request.user %}
+                      <tr>
+                        <td>{{d.nome}}</td>
+                        <td>{{d.nota}}</td>
+                      </tr>
+                    {% endif %}
+                  {% endfor %}
+                  {% endfor %}
+              </tbody>
+            </table>
+            
+          </div>
+    </div>
+    </div>
+</div>
+
+</body>
+</html>

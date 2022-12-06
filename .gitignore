@@ -1,0 +1,5 @@
+venv
+.idea
+mediafiles
+staticfiles
+db.sqlite3
